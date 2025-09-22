@@ -1,0 +1,62 @@
+CURL COMMANDS FOR MY HACKHATHON
+1 - SSH Brute Force on Web Server
+  curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"SSH Brute Force Attempt\", \"description\": \"Multiple failed SSH logins from IP 103.22.11.4 on the main web server.\", \"system_id\": 1, \"incident_type_id\": 3}"
+
+
+2 - Suspicious Login to HR Database
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Suspicious Login from New Country\", \"description\": \"Successful login to HR database from an IP located in a new country.\", \"system_id\": 2, \"incident_type_id\": 3}"
+
+
+3 - Remote Access on Workstation
+
+    curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Remote Access Detected\", \"description\": \"Unusual remote access session initiated on a finance department workstation.\", \"system_id\": 3, \"incident_type_id\": 3}"
+
+
+
+4 - Privilege Escalation Alert
+  curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Privilege Escalation Alert\", \"description\": \"User account 'temp_admin' attempted to gain root access on the HR database.\", \"system_id\": 2, \"incident_type_id\": 3}"
+
+
+5 - Ransomware on Web Server
+
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Ransomware Signature Detected\", \"description\": \"Files with .locky extension found on the web server, indicating a ransomware infection.\", \"system_id\": 1, \"incident_type_id\": 1}"  
+
+6 - Trojan on Employee Workstation
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Trojan Found in Downloaded File\", \"description\": \"Antivirus flagged 'setup.exe' as a trojan on an employee machine.\", \"system_id\": 3, \"incident_type_id\": 1}"
+
+
+7 - Web Shell Uploaded
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Web Shell Uploaded\", \"description\": \"A malicious PHP file 'shell.php' was uploaded to the web server's /uploads directory.\", \"system_id\": 1, \"incident_type_id\": 1}"  
+
+
+8 - Credential Phishing Email
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Credential Phishing Email Reported\", \"description\": \"User reported an email pretending to be from IT asking for password reset.\", \"system_id\": 3, \"incident_type_id\": 2}"
+
+ 9 - CEO Fraud (BEC) Email 
+      curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"CEO Fraud Email Detected\", \"description\": \"An email impersonating the CEO requested an urgent wire transfer.\", \"system_id\": 3, \"incident_type_id\": 2}"
+
+
+10 - Malicious Link Clicked
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Malicious Link Clicked by Intern\", \"description\": \"User confirmed they clicked a link in a phishing email. Workstation is being isolated.\", \"system_id\": 3, \"incident_type_id\": 2}"
+
+
+ 11 - WordPress Login Flood
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"WordPress Login Flood\", \"description\": \"High volume of failed login attempts on the website's wp-admin page.\", \"system_id\": 1, \"incident_type_id\": 4}"
+
+
+12 - Database Login Spam
+  curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"High Volume of Failed DB Logins\", \"description\": \"Over 500 failed login attempts on the HR database in the last hour.\", \"system_id\": 2, \"incident_type_id\": 4}"
+
+
+13 - RDP Login Failures
+
+ curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Repeated RDP Login Failures\", \"description\": \"Multiple failed Remote Desktop Protocol login attempts on a workstation.\", \"system_id\": 3, \"incident_type_id\": 4}"
+
+
+14 - SQL Injection Attempt
+
+   curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"SQL Injection Attempt\", \"description\": \"Web Application Firewall blocked a request containing a suspected SQL injection payload.\", \"system_id\": 1, \"incident_type_id\": 3}"
+
+
+15 - Data Exfiltration Alert
+  curl -X POST http://127.0.0.1:5000/incidents -H "Content-Type: application/json" -d "{\"title\": \"Data Exfiltration Alert\", \"description\": \"Unusually large amount of data transferred outbound from the HR database server.\", \"system_id\": 2, \"incident_type_id\": 3}"

@@ -1,0 +1,9 @@
+# Python virtual environment
+venv/
+__pycache__/
+
+# VS Code settings
+.vscode/
+
+# Blocked IPs log file (optional, if you don't want to track it)
+blocked_ips.txt
