@@ -4,8 +4,6 @@ import random
 
 API_URL = "http://127.0.0.1:5000/incidents"
 
-# --- EDITED: Using a curated list of well-known public IPs ---
-# These are guaranteed to have a real-world location.
 guaranteed_public_ips = [
     "8.8.8.8",       # Google DNS (USA)
     "1.1.1.1",       # Cloudflare DNS (USA)
@@ -20,7 +18,6 @@ guaranteed_public_ips = [
     "45.33.32.156"    # Linode Server (USA)
 ]
 
-# Scenarios remain the same
 scenarios = [
     {
         "title": "SQL Injection Attempt", "incident_type_id": 3,
@@ -61,14 +58,14 @@ print("Simulating attacks from known public IP addresses...")
 while True:
     try:
         if random.random() < 0.1: 
-            burst_count = random.randint(2, 3) # EDITED: Smaller burst
+            burst_count = random.randint(2, 3) 
             print(f"\n⚡ ATTACK BURST: Simulating {burst_count} rapid events... ⚡")
             for _ in range(burst_count):
-                # EDITED: Slowed down burst speed to avoid rate limiting
+                
                 time.sleep(random.uniform(1.5, 2.5))
                 
                 scenario = random.choice(scenarios)
-                ip = random.choice(guaranteed_public_ips) # EDITED: Use the reliable IP list
+                ip = random.choice(guaranteed_public_ips) 
                 system_id = random.choice(scenario["target_systems"])
                 
                 payload = {
@@ -83,7 +80,7 @@ while True:
             print("⚡ Burst complete. Returning to normal pace. ⚡\n")
             
         scenario = random.choice(scenarios)
-        ip = random.choice(guaranteed_public_ips) # EDITED: Use the reliable IP list
+        ip = random.choice(guaranteed_public_ips) 
         system_id = random.choice(scenario["target_systems"])
 
         payload = {
@@ -100,7 +97,6 @@ while True:
         else:
             print(f"ERROR: Failed to log incident. Status code: {response.status_code}")
         
-        # EDITED: Slightly increased normal sleep time
         time.sleep(random.uniform(4, 8))
 
     except requests.exceptions.ConnectionError:
