@@ -1,16 +1,14 @@
-/* --- Corrected CSS for 3D Background Layering --- */
-
 :root {
-    /* EDITED: New blue and white color palette */
+   
     --bg-dark: #020a14;
     --container-bg: rgba(1, 22, 39, 0.85);
-    --text-primary: #E0E0E0;      /* Primary text is now a light grey/white */
-    --accent-blue: #00BFFF;       /* A vibrant "Deep Sky Blue" for accents */
+    --text-primary: #E0E0E0;      
+    --accent-blue: #00BFFF;       
     --text-yellow: #ffeb3b;
     --text-red: #ff5252;
-    --border-color: var(--accent-blue); /* Borders will now be blue */
+    --border-color: var(--accent-blue); 
 
-    /* Transparent colors updated to use blue */
+   
     --box-bg-alpha: rgba(0, 191, 255, 0.08);
     --box-shadow-alpha: rgba(0, 191, 255, 0.4);
     --table-border-alpha: rgba(0, 191, 255, 0.2);
@@ -22,14 +20,14 @@ body {
         rgba(0, 50, 100, 0.5) 0%, 
         #020a14 70%
     );
-    color: var(--text-primary); /* Use the new white/light grey */
+    color: var(--text-primary);
     font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
 }
 
-/* --- KEY FIXES FOR LAYERING --- */
+
 #bg {
     position: fixed;
     top: 0;
@@ -49,11 +47,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 20px var(--box-shadow-alpha);
 }
-/* --- END OF KEY FIXES --- */
 
 
 h1 {
-    color: var(--text-primary); /* Use the new white/light grey */
+    color: var(--text-primary); 
     text-align: center;
     letter-spacing: 4px;
     text-shadow: 0 0 8px var(--accent-blue), 0 0 15px rgba(0, 191, 255, 0.7);
@@ -166,11 +163,11 @@ tbody tr:hover {
     animation: fadeInSlideUp 0.5s ease-out;
 }
 
-.risk-low { color: var(--text-primary); } /* Low risk items are now white/light grey */
+.risk-low { color: var(--text-primary); } 
 .risk-medium { color: var(--text-yellow); }
 .risk-high { color: var(--text-red); font-weight: bold; }
 
-/* Glitch effect styles (if you have them) can remain here */
+
 h1::before,
 h1::after {
     content: 'CYBER THREAT CONSOLE_';
@@ -191,7 +188,7 @@ h1::before {
 
 h1::after {
     left: -2px;
-    text-shadow: -2px 0 var(--accent-blue); /* Adjusted to new blue */
+    text-shadow: -2px 0 var(--accent-blue); 
     animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
 }
 
@@ -204,7 +201,7 @@ h1::after {
 }
 
 
-/* --- CRT Scanline Overlay --- */
+
 body::before {
     content: " ";
     display: block;
@@ -229,7 +226,7 @@ body::before {
     0% { opacity: 0.2; } 20% { opacity: 0.8; } 40% { opacity: 0.4; } 60% { opacity: 0.9; } 80% { opacity: 0.3; } 100% { opacity: 0.7; }
 }
 
-/* --- Targeting System Panel --- */
+
 .targeting-container {
     border: 2px solid var(--accent-blue);
     padding: 25px;
@@ -249,7 +246,7 @@ body::before {
 }
 .label {
     font-weight: bold;
-    color: var(--accent-blue); /* Adjusted to new blue */
+    color: var(--accent-blue); 
 }
 #target-ip {
     color: var(--text-red);
