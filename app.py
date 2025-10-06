@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import mariadb # <-- EDITED: Changed the import
+import mariadb 
 import pandas as pd
 import requests
 import subprocess
 import sys
 from datetime import datetime
 
-# --- Configuration ---
+
 SOAR_RISK_THRESHOLD = 20
 
 db_config = {
@@ -17,10 +17,9 @@ db_config = {
     'database': 'cyber_hackathon'
 }
 
-# --- EDITED: Updated the connection function for MariaDB ---
+
 def get_db_connection():
     try:
-        # Use mariadb.connect instead of mysql.connector.connect
         conn = mariadb.connect(**db_config)
         return conn
     except mariadb.Error as e:
@@ -30,7 +29,7 @@ def get_db_connection():
 app = Flask(__name__)
 CORS(app)
 
-# --- Predictive Risk Scoring Function ---
+#  Risk Scoring Function 
 def calculate_predictive_risk_score(base_severity, criticality_level, ip_address, country, cursor):
     risk_score = base_severity * criticality_level
     print(f"Base risk score: {risk_score}")
@@ -61,7 +60,7 @@ def add_incident():
     data = request.json
     try:
         conn = get_db_connection()
-        cursor = conn.cursor() # EDITED: No 'dictionary=True' needed initially
+        cursor = conn.cursor() 
 
         ip_address = data.get('ip_address')
         country, city, lat, lon = 'N/A', 'N/A', None, None
@@ -79,9 +78,9 @@ def add_incident():
                 print(f"Geolocation API failed: {e}")
                 pass
 
-        cursor.execute("SELECT base_severity FROM incident_types WHERE id = ?", (data['incident_type_id'],)) # EDITED: Use '?'
+        cursor.execute("SELECT base_severity FROM incident_types WHERE id = ?", (data['incident_type_id'],)) 
         incident_type_result = cursor.fetchone()
-        cursor.execute("SELECT criticality_level FROM systems WHERE id = ?", (data['system_id'],)) # EDITED: Use '?'
+        cursor.execute("SELECT criticality_level FROM systems WHERE id = ?", (data['system_id'],)) 
         system_result = cursor.fetchone()
 
         if not incident_type_result or not system_result:
@@ -103,7 +102,7 @@ def add_incident():
             subprocess.Popen([sys.executable, "block_ip.py", ip_address])
 
         sql = """INSERT INTO incidents (title, description, system_id, incident_type_id, risk_score, ip_address, country, city, latitude, longitude)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""" # EDITED: Use '?'
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""" 
         values = (data['title'], data['description'], data['system_id'], data['incident_type_id'], risk_score, ip_address, country, city, lat, lon)
         cursor.execute(sql, values)
         conn.commit()
